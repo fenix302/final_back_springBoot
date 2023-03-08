@@ -12,8 +12,8 @@ import javax.persistence.Transient;
 import lombok.Data;
 
 @SequenceGenerator(
-        name="MEMBER_SEQ_GEN",
-        sequenceName="MEMBER_SEQ",
+        name="USER_SEQ",
+        sequenceName="USER_SEQ",
         initialValue=1,
         allocationSize=1
         )
@@ -23,9 +23,9 @@ import lombok.Data;
 public class MemberVO {
 	  
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
 	@Column(name = "USER_CODE")
-	private String userCode;
+	private Long userCode;
 	
 	@Column(name = "ID")
 	private String id;
@@ -39,8 +39,4 @@ public class MemberVO {
 	@Column(name = "NAME")
 	private String name;
 	
-	
-	
-	
-
 }
