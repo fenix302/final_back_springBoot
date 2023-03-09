@@ -26,7 +26,7 @@ public class MemberVO {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
 	@Column(name = "USER_CODE")
 	private Long userCode;
-	
+
 	@Column(name = "ID")
 	private String id;
 	
