@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @EntityScan(basePackages = {"com.springboot"})
 @SpringBootApplication
-public class FinalProjectApplication {
+public class final_back_springBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FinalProjectApplication.class, args);
+		SpringApplication.run(final_back_springBootApplication.class, args);
 		
 		System.out.println("====== 시작 =======");
 	}
