@@ -17,4 +17,8 @@ public class CafeRequestService {
 	public List<CafeRequest> getAllBoard(){
 		return requestRepository.findAll();
 	}
+
+	public CafeRequest createBoard(CafeRequest board) {
+		return requestRepository.save(board);
+	}
 }
