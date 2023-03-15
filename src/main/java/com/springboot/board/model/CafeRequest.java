@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -14,6 +15,11 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import lombok.Data;
 
+@SequenceGenerator(
+		name = "seq_cafe_request",
+		sequenceName = "seq_request",
+		initialValue = 1,
+		allocationSize = 1)
 @Data
 @Entity
 @Table(name = "TB_CAFE_REQUEST")
@@ -22,7 +28,10 @@ import lombok.Data;
 public class CafeRequest {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(
+			strategy=GenerationType.SEQUENCE,
+			generator="seq_cafe_request"        
+			)
 	
 	@Column(name = "BNO")
 	private Long bno;
