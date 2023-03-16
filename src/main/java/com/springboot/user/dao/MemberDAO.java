@@ -13,4 +13,7 @@ public interface MemberDAO extends JpaRepository<MemberVO, Integer> {
 	
 	// 회원가입여부를 확인하기 위한 MemberId, MemberPw로 단건 조회
 	MemberVO findByIdAndPw(String id, String pw);
+	
+	
+	MemberVO findById(String id);
 }

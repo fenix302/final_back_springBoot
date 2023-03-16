@@ -12,4 +12,6 @@ public interface MemberService {
 	 */
 	MemberVO selectMemberByIdByPw(MemberVO memberVO) throws Exception;
 	
+	MemberVO select(MemberVO memberVO);
+
 }

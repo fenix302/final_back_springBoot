@@ -24,6 +24,13 @@ public class MemberServiceImpl implements MemberService{
 		MemberVO resultVO = memberDAO.findByIdAndPw(memberVO.getId(), memberVO.getPw());
 		return resultVO;
 	}
+
+
+	@Override
+	public MemberVO select(MemberVO memberVO) {
+		MemberVO memberVO1 = memberDAO.findById(memberVO.getId());
+		return memberVO1;
+	}
 	
 	
 }
