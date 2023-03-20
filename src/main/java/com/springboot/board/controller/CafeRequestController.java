@@ -3,8 +3,10 @@ package com.springboot.board.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +32,11 @@ public class CafeRequestController {
 	@PostMapping("/board")
 	public CafeRequest createBoard(@RequestBody CafeRequest board) {
 		return caferequestSerivce.createBoard(board);
+	}
+	
+	@GetMapping("/board/{bno}")
+	public ResponseEntity<CafeRequest> getBoardByBno(@PathVariable Integer bno){
+		return caferequestSerivce.getBoard(bno);
+		
 	}
 }

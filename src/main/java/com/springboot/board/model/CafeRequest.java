@@ -34,7 +34,7 @@ public class CafeRequest {
 			)
 	
 	@Column(name = "BNO")
-	private Long bno;
+	private Integer bno;
 	
 	@Column(name = "TITLE")
 	private String title;
