@@ -27,4 +27,14 @@ public class CafeRequestService {
 		CafeRequest board = requestRepository.findById(bno).orElseThrow(() -> new IllegalArgumentException("Not exist Board Data by bno : ["+bno+"]"));
 		return ResponseEntity.ok(board);
 	}
+
+	public ResponseEntity<CafeRequest> updateBoard(Integer bno, CafeRequest updateBoard) {
+		CafeRequest board = requestRepository.findById(bno).orElseThrow(() -> new IllegalArgumentException("Not exist Board Data by bno : ["+bno+"]"));
+		board.setTitle(updateBoard.getTitle());
+		board.setContent(updateBoard.getContent());
+		board.setWriter(updateBoard.getWriter());
+		
+		CafeRequest endUpdateBoard = requestRepository.save(board);
+		return ResponseEntity.ok(endUpdateBoard);
+	}
 }
