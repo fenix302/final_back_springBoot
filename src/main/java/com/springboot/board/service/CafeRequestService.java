@@ -1,6 +1,8 @@
 package com.springboot.board.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +38,13 @@ public class CafeRequestService {
 		
 		CafeRequest endUpdateBoard = requestRepository.save(board);
 		return ResponseEntity.ok(endUpdateBoard);
+	}
+
+	public ResponseEntity<Map<String, Boolean>> deleteBoard(Integer bno) {
+		CafeRequest board = requestRepository.findById(bno).orElseThrow(() -> new IllegalArgumentException("Not exist Board Data by bno : ["+bno+"]"));
+		requestRepository.delete(board);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("Deleted Board Data by id : ["+bno+"]", Boolean.TRUE);
+		return ResponseEntity.ok(response);
 	}
 }

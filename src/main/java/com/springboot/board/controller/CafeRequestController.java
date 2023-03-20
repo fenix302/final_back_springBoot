@@ -1,10 +1,12 @@
 package com.springboot.board.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,5 +46,11 @@ public class CafeRequestController {
 	@PutMapping("/board/{bno}")
 	public ResponseEntity<CafeRequest> updateBoardByBno(@PathVariable Integer bno, @RequestBody CafeRequest board){
 		return caferequestSerivce.updateBoard(bno, board);
+	}
+	
+	@DeleteMapping("/board/{bno}")
+	public ResponseEntity<Map<String, Boolean>> deleteBoardByBno(@PathVariable Integer bno){
+		return caferequestSerivce.deleteBoard(bno);
+		
 	}
 }
