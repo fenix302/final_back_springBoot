@@ -57,17 +57,17 @@ public class MemberController {
 	// @RequestBody 는 HttpServletRequest request(요청) 사항의 Body 전송 데이터를 자바 객체로 변환할 때 사용함.
     // 참고로, @ResponseBody 의 경우, 자바 객체를 HttpServletResponse response(응답) 사항의 Body 전송 데이터로 변환할 때 사용함.
 	@RequestMapping(value = "/signin")
-	public boolean signIn(@RequestBody MemberVO memberVO, HttpServletRequest request) {
+	public boolean signIn(@RequestBody MemberVO memberVO, HttpServletRequest request) throws Exception {
 	MemberVO memberVO1;
 	try {
-		memberVO1 = memberService.select(memberVO);
+		memberVO1 = memberService.selectMemberByIdByPw(memberVO);
+		if(memberVO != null) {
+			if (memberVO1.getPw().equals(memberVO1.getPw())) {
+				return true;
+			}
+		}
 	} catch (NullPointerException e) {
 		memberVO1 = null;
-	}
-	if(memberVO != null) {
-		if (memberVO1.getPw().equals(memberVO1.getPw())) {
-			return true;
-		}
 	}
 	return false;
 	}
