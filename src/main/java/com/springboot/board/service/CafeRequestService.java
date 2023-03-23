@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class CafeRequestService {
 	
 	// 글 조회
 	public List<CafeRequest> getAllBoard(){
-		return requestRepository.findAll();
+		return requestRepository.findAll(Sort.by(Sort.Direction.ASC, "bno")); // 오름차순으로 정렬해서 보여줌. 내림차순은 DESC를 사용하면 됨.
 	}
 
 	// 글 삭제
