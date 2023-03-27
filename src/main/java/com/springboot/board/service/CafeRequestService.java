@@ -20,7 +20,7 @@ public class CafeRequestService {
 	
 	// 글 조회
 	public List<CafeRequest> getAllBoard(){
-		return requestRepository.findAll(Sort.by(Sort.Direction.ASC, "bno")); // 오름차순으로 정렬해서 보여줌. 내림차순은 DESC를 사용하면 됨.
+		return requestRepository.findAll(Sort.by(Sort.Direction.DESC, "bno")); // 내림차순으로 정렬해서 보여줌. 오름차순은 ASC를 사용하면 됨.
 	}
 
 	// 글 삭제
